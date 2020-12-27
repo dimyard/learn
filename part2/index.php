@@ -1,11 +1,111 @@
 <?
-$countOfStableBottles = 99;
+///
+/// 1. Смотрим, есть ли файл с зависимостями.
+/// 2. Проверяем наличие самой директории с из файла с зависимосстей.
+///
 
-function plural_form($number, $after) {
-    $cases = array (2, 0, 1, 1, 1, 2);
-    echo $number.' '.$after[ ($number%100>4 && $number%100<20)? 2: $cases[min($number%10, 5)] ];
+/// Расположение папки с модулями
+define("MODULES_FOLDER", $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "part2". DIRECTORY_SEPARATOR. "modules");
+define("VERSION_DEPENDENCIES_FILE", "version_control.txt");
+
+function GetDependenciesInVersion (string $moduleName, string $version)
+{
+    $result = $result ?? [];
+    $moduleVersions = GetModulesVersions($moduleName);
+    $versionFolder = MODULES_FOLDER . DIRECTORY_SEPARATOR . $moduleName . DIRECTORY_SEPARATOR . $moduleVersions[$version];
+    if (file_exists($versionFolder)) {
+        $versionFile = $versionFolder . DIRECTORY_SEPARATOR . VERSION_DEPENDENCIES_FILE;
+        if (file_exists($versionFile)) {
+            $result = ParseVersionFile($versionFile);
+            foreach ($result as $dependencyModule => $dependencyVersion) {
+                $newDependencies = GetDependenciesInVersion($dependencyModule, $dependencyVersion);
+                if ($newDependencies) {
+                    $result = GetArrayVsActualVersions($result, $newDependencies);
+                }
+            }
+            return $result;
+        }
+    }
+    else {
+        return false;
+    }
 }
 
-while ($countOfStableBottles) {
-    echo(plural_form($countOfStableBottles--, ["бутылка стояла", "бутылки стояло", "бутылок стояло"]) . " на столе. Одна упала. </br>"); //.PHP_EOL
+function NormalizeVersionName (string $folderName): string
+{
+    $result = trim(preg_replace('/[^0-9\.]/', '', $folderName), ".");
+    return str_replace(" ", "", $result);
 }
+
+function GetModulesVersions (string $moduleName)
+{
+    $result = [];
+    $moduleName = CheckModuleExists($moduleName);
+    if ($moduleName) {
+        $versionDirs = scandir($moduleName);
+        if (count($versionDirs) > 0) {
+            foreach ($versionDirs as $version) {
+                $version = htmlspecialchars($version);
+                $currentVersion = NormalizeVersionName($version);
+                if ($currentVersion) {
+                    $result[$currentVersion] = $version;
+                }
+            }
+            return $result;
+        }
+        else {
+            return false;
+        }
+    }
+    else {
+        return false;
+    }
+}
+
+function CheckModuleExists (string $moduleName): string
+{
+    $moduleFolder = MODULES_FOLDER . DIRECTORY_SEPARATOR . $moduleName;
+    if (is_dir($moduleFolder)) {
+        return htmlspecialchars($moduleFolder);
+    }
+    else {
+        throw new \http\Exception\InvalidArgumentException("Не удалось найти такой модуль: " .
+            htmlspecialchars($moduleName));
+    }
+}
+
+function ParseVersionFile (string $filePath)
+{
+    $result = [];
+    if(file_exists($filePath)) {
+        foreach (file($filePath) as $line)
+        {
+            list($module, $version) = explode(',', $line, 2) + array(NULL, NULL);
+            if ($version !== NULL)
+            {
+                $result += [htmlspecialchars(trim($module)) => htmlspecialchars(trim($version))];
+            }
+        }
+        return $result;
+    }
+    else {
+        return false;
+    }
+}
+
+function GetArrayVsActualVersions (array $firstArray, array $secondArray): array
+{
+    $result = array_merge($firstArray, $secondArray);
+    foreach ($firstArray as $module => $version) {
+        if (key_exists($module, $secondArray)) {
+            $result[$module] = version_compare($version, $secondArray[$module], ">=") ? $version : $secondArray[$module];
+        }
+    }
+    return $result;
+}
+
+$sample = GetDependenciesInVersion("general", "20.0.100");
+
+ foreach ($sample as $key => $val) {
+     echo $key . " " . $val . "</br>";
+ }

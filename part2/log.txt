@@ -1,0 +1,169 @@
+2020-12-27 21:42:37Вхождение general20.0.100
+2020-12-27 21:42:37Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\general\20.0.100
+2020-12-27 21:42:37Есть файл с зависимостью E:/WEB/OpenServer/domains/look.here\part2\modules\general\20.0.100\version_control.txt
+2020-12-27 21:42:37Записали в массив 20.700.140</br>
+2020-12-27 21:42:37Foreach for  20.700.140
+2020-12-27 21:42:37Пара data20.700.140</br>
+2020-12-27 21:42:37Вхождение data20.700.140
+2020-12-27 21:42:37Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\data\20.700.140.tmp
+2020-12-27 21:42:37Есть файл с зависимостью E:/WEB/OpenServer/domains/look.here\part2\modules\data\20.700.140.tmp\version_control.txt
+2020-12-27 21:42:37Записали в массив 20.500.100
+20.100.600</br>
+2020-12-27 21:42:37Foreach for  20.500.100
+20.100.600
+2020-12-27 21:42:37Пара other20.500.100
+</br>
+2020-12-27 21:42:37Вхождение other20.500.100
+
+2020-12-27 21:42:37Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\other\
+2020-12-27 21:42:37Пара test20.100.600</br>
+2020-12-27 21:42:37Вхождение test20.100.600
+2020-12-27 21:42:37Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\test\20.100.600
+2020-12-27 21:42:37New DEPS YES. Result =  20.500.100
+20.100.600</br>
+2020-12-27 21:45:53Вхождение general20.0.100
+2020-12-27 21:45:53Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\general\20.0.100
+2020-12-27 21:45:53Есть файл с зависимостью E:/WEB/OpenServer/domains/look.here\part2\modules\general\20.0.100\version_control.txt
+2020-12-27 21:45:53Записали в массив 20.700.140</br>
+2020-12-27 21:45:53Foreach for  20.700.140
+2020-12-27 21:45:53Пара data20.700.140</br>
+2020-12-27 21:45:53Вхождение data20.700.140
+2020-12-27 21:45:53Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\data\20.700.140.tmp
+2020-12-27 21:45:53Есть файл с зависимостью E:/WEB/OpenServer/domains/look.here\part2\modules\data\20.700.140.tmp\version_control.txt
+2020-12-27 21:45:53Записали в массив 20.500.100
+20.100.600</br>
+2020-12-27 21:45:53Foreach for  20.500.100
+20.100.600
+2020-12-27 21:45:53Пара other20.500.100
+</br>
+2020-12-27 21:45:53Вхождение other20.500.100
+
+2020-12-27 21:45:53Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\other\
+2020-12-27 21:45:53Пара test20.100.600</br>
+2020-12-27 21:45:53Вхождение test20.100.600
+2020-12-27 21:45:53Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\test\20.100.600
+2020-12-27 21:45:53New DEPS YES. Result =  20.500.100
+20.100.600</br>
+2020-12-27 21:48:12Вхождение general20.0.100
+2020-12-27 21:48:12Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\general\20.0.100
+2020-12-27 21:48:12Есть файл с зависимостью E:/WEB/OpenServer/domains/look.here\part2\modules\general\20.0.100\version_control.txt
+2020-12-27 21:48:12Записали в массив 20.700.140</br>
+2020-12-27 21:48:12Foreach for  20.700.140
+2020-12-27 21:48:12Пара data20.700.140</br>
+2020-12-27 21:48:12Вхождение data20.700.140
+2020-12-27 21:48:12Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\data\20.700.140.tmp
+2020-12-27 21:48:12Есть файл с зависимостью E:/WEB/OpenServer/domains/look.here\part2\modules\data\20.700.140.tmp\version_control.txt
+2020-12-27 21:48:12Записали в массив 20.500.100
+20.100.600</br>
+2020-12-27 21:48:12Foreach for  20.500.100
+20.100.600
+2020-12-27 21:48:12Пара other20.500.100
+</br>
+2020-12-27 21:48:12Вхождение other20.500.100
+
+2020-12-27 21:48:12Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\other\
+2020-12-27 21:48:12Пара test20.100.600</br>
+2020-12-27 21:48:12Вхождение test20.100.600
+2020-12-27 21:48:12Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\test\20.100.600
+2020-12-27 21:48:12New DEPS YES. Result =  20.500.100
+20.100.600</br>
+2020-12-27 21:48:13Вхождение general20.0.100
+2020-12-27 21:48:13Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\general\20.0.100
+2020-12-27 21:48:13Есть файл с зависимостью E:/WEB/OpenServer/domains/look.here\part2\modules\general\20.0.100\version_control.txt
+2020-12-27 21:48:13Записали в массив 20.700.140</br>
+2020-12-27 21:48:13Foreach for  20.700.140
+2020-12-27 21:48:13Пара data20.700.140</br>
+2020-12-27 21:48:13Вхождение data20.700.140
+2020-12-27 21:48:13Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\data\20.700.140.tmp
+2020-12-27 21:48:13Есть файл с зависимостью E:/WEB/OpenServer/domains/look.here\part2\modules\data\20.700.140.tmp\version_control.txt
+2020-12-27 21:48:13Записали в массив 20.500.100
+20.100.600</br>
+2020-12-27 21:48:13Foreach for  20.500.100
+20.100.600
+2020-12-27 21:48:13Пара other20.500.100
+</br>
+2020-12-27 21:48:13Вхождение other20.500.100
+
+2020-12-27 21:48:13Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\other\
+2020-12-27 21:48:13Пара test20.100.600</br>
+2020-12-27 21:48:13Вхождение test20.100.600
+2020-12-27 21:48:13Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\test\20.100.600
+2020-12-27 21:48:13New DEPS YES. Result =  20.500.100
+20.100.600</br>
+2020-12-27 21:48:43Вхождение general20.0.100
+2020-12-27 21:48:43Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\general\20.0.100
+2020-12-27 21:48:43Есть файл с зависимостью E:/WEB/OpenServer/domains/look.here\part2\modules\general\20.0.100\version_control.txt
+2020-12-27 21:48:43Записали в массив 20.700.140</br>
+2020-12-27 21:48:43Foreach for  20.700.140
+2020-12-27 21:48:43Пара data20.700.140</br>
+2020-12-27 21:48:43Вхождение data20.700.140
+2020-12-27 21:48:43Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\data\20.700.140.tmp
+2020-12-27 21:48:43Есть файл с зависимостью E:/WEB/OpenServer/domains/look.here\part2\modules\data\20.700.140.tmp\version_control.txt
+2020-12-27 21:48:43Записали в массив 20.500.100
+20.100.600</br>
+2020-12-27 21:48:43Foreach for  20.500.100
+20.100.600
+2020-12-27 21:48:43Пара other20.500.100
+</br>
+2020-12-27 21:48:43Вхождение other20.500.100
+
+2020-12-27 21:48:43Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\other\
+2020-12-27 21:48:43Пара test20.100.600</br>
+2020-12-27 21:48:43Вхождение test20.100.600
+2020-12-27 21:48:43Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\test\20.100.600
+2020-12-27 21:48:43New DEPS YES. Result =  20.500.100
+20.100.600</br>
+2020-12-27 21:50:14Вхождение general20.0.100
+2020-12-27 21:50:14Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\general\20.0.100
+2020-12-27 21:50:14Есть файл с зависимостью E:/WEB/OpenServer/domains/look.here\part2\modules\general\20.0.100\version_control.txt
+2020-12-27 21:50:14Записали в массив 20.700.140</br>
+2020-12-27 21:50:14Foreach for  20.700.140
+2020-12-27 21:50:14Пара data20.700.140</br>
+2020-12-27 21:50:14Вхождение data20.700.140
+2020-12-27 21:50:14Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\data\20.700.140.tmp
+2020-12-27 21:50:14Есть файл с зависимостью E:/WEB/OpenServer/domains/look.here\part2\modules\data\20.700.140.tmp\version_control.txt
+2020-12-27 21:50:14Записали в массив 20.500.100
+20.100.600</br>
+2020-12-27 21:50:14Foreach for  20.500.100
+20.100.600
+2020-12-27 21:50:14Пара other20.500.100
+</br>
+2020-12-27 21:50:14Вхождение other20.500.100
+
+2020-12-27 21:50:14Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\other\
+2020-12-27 21:50:14Пара test20.100.600</br>
+2020-12-27 21:50:14Вхождение test20.100.600
+2020-12-27 21:50:14Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\test\20.100.600
+2020-12-27 21:50:14New DEPS YES. Result =  20.500.100
+20.100.600</br>
+2020-12-27 21:50:30Вхождение general20.0.100
+2020-12-27 21:50:30Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\general\20.0.100
+2020-12-27 21:50:30Есть файл с зависимостью E:/WEB/OpenServer/domains/look.here\part2\modules\general\20.0.100\version_control.txt
+2020-12-27 21:50:30Записали в массив 20.700.140</br>
+2020-12-27 21:50:30Foreach for  20.700.140
+2020-12-27 21:50:30Пара data20.700.140</br>
+2020-12-27 21:50:30Вхождение data20.700.140
+2020-12-27 21:50:30Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\data\20.700.140.tmp
+2020-12-27 21:50:30Есть файл с зависимостью E:/WEB/OpenServer/domains/look.here\part2\modules\data\20.700.140.tmp\version_control.txt
+2020-12-27 21:50:30Записали в массив 20.500.100
+20.100.600</br>
+2020-12-27 21:50:30Foreach for  20.500.100
+20.100.600
+2020-12-27 21:50:30Пара other20.500.100
+</br>
+2020-12-27 21:50:30Вхождение other20.500.100
+
+2020-12-27 21:50:30Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\other\
+2020-12-27 21:50:30Пара test20.100.600</br>
+2020-12-27 21:50:30Вхождение test20.100.600
+2020-12-27 21:50:30Версия существует E:/WEB/OpenServer/domains/look.here\part2\modules\test\20.100.600
+2020-12-27 21:50:30New DEPS YES. Result =  20.500.100
+20.100.600</br>
+2020-12-27 21:51:04Есть файл с зависимостью E:/WEB/OpenServer/domains/look.here\part2\modules\general\20.0.100\version_control.txt
+2020-12-27 21:51:04Есть файл с зависимостью E:/WEB/OpenServer/domains/look.here\part2\modules\data\20.700.140.tmp\version_control.txt
+2020-12-27 21:51:05Есть файл с зависимостью E:/WEB/OpenServer/domains/look.here\part2\modules\general\20.0.100\version_control.txt
+2020-12-27 21:51:05Есть файл с зависимостью E:/WEB/OpenServer/domains/look.here\part2\modules\data\20.700.140.tmp\version_control.txt
+2020-12-27 21:52:08Есть файл с зависимостью E:/WEB/OpenServer/domains/look.here\part2\modules\general\20.0.100\version_control.txt
+2020-12-27 21:52:08Есть файл с зависимостью E:/WEB/OpenServer/domains/look.here\part2\modules\data\20.700.140.tmp\version_control.txt
+2020-12-27 21:53:05Есть файл с зависимостью E:/WEB/OpenServer/domains/look.here\part2\modules\general\20.0.100\version_control.txt
+2020-12-27 21:53:05Есть файл с зависимостью E:/WEB/OpenServer/domains/look.here\part2\modules\data\20.700.140.tmp\version_control.txt
