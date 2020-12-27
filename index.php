@@ -7,7 +7,7 @@ foreach ($lessonsDirs as $item)
     if(is_dir($item))
     {
         $indexPage =  $item . "/index.php";
-        $infoFile =  $item . "/about.txt";
+        $infoFile =  $item . "/readme.md";
 
         if (file_exists($indexPage)
             && file_exists($infoFile)

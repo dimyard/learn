@@ -5,29 +5,31 @@
 ///
 
 /// Расположение папки с модулями
-define("MODULES_FOLDER", $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "part2". DIRECTORY_SEPARATOR. "modules");
+define("MODULES_FOLDER", $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "part2" . DIRECTORY_SEPARATOR . "modules");
 define("VERSION_DEPENDENCIES_FILE", "version_control.txt");
 
 function GetDependenciesInVersion (string $moduleName, string $version)
 {
-    $result = $result ?? [];
+    $result = [];
     $moduleVersions = GetModulesVersions($moduleName);
     $versionFolder = MODULES_FOLDER . DIRECTORY_SEPARATOR . $moduleName . DIRECTORY_SEPARATOR . $moduleVersions[$version];
-    if (file_exists($versionFolder)) {
-        $versionFile = $versionFolder . DIRECTORY_SEPARATOR . VERSION_DEPENDENCIES_FILE;
-        if (file_exists($versionFile)) {
-            $result = ParseVersionFile($versionFile);
-            foreach ($result as $dependencyModule => $dependencyVersion) {
-                $newDependencies = GetDependenciesInVersion($dependencyModule, $dependencyVersion);
-                if ($newDependencies) {
-                    $result = GetArrayVsActualVersions($result, $newDependencies);
-                }
-            }
+    if (!is_dir($versionFolder)) {
+        return false;
+    }
+    $versionFile = $versionFolder . DIRECTORY_SEPARATOR . VERSION_DEPENDENCIES_FILE;
+    if (file_exists($versionFile)) {
+        $versionsFromFile = ParseVersionFile($versionFile);
+        if (!$versionsFromFile || (is_array($versionsFromFile) && count(versionsFromFile) <= 0)) {
             return $result;
         }
-    }
-    else {
-        return false;
+        $result = $versionsFromFile;
+        foreach ($result as $dependencyModule => $dependencyVersion) {
+            $newDependencies = GetDependenciesInVersion($dependencyModule, $dependencyVersion);
+            if ($newDependencies) {
+                $result = GetArrayVsActualVersions($result, $newDependencies);
+            }
+        }
+        return $result;
     }
 }
 
@@ -41,25 +43,21 @@ function GetModulesVersions (string $moduleName)
 {
     $result = [];
     $moduleName = CheckModuleExists($moduleName);
-    if ($moduleName) {
-        $versionDirs = scandir($moduleName);
-        if (count($versionDirs) > 0) {
-            foreach ($versionDirs as $version) {
-                $version = htmlspecialchars($version);
-                $currentVersion = NormalizeVersionName($version);
-                if ($currentVersion) {
-                    $result[$currentVersion] = $version;
-                }
-            }
-            return $result;
-        }
-        else {
-            return false;
-        }
-    }
-    else {
+    if (!$moduleName) {
         return false;
     }
+    $versionDirs = scandir($moduleName);
+    if (!count($versionDirs) > 0) {
+        return false;
+    }
+    foreach ($versionDirs as $version) {
+        $version = htmlspecialchars($version);
+        $currentVersion = NormalizeVersionName($version);
+        if ($currentVersion) {
+            $result[$currentVersion] = $version;
+        }
+    }
+    return $result;
 }
 
 function CheckModuleExists (string $moduleName): string
@@ -77,20 +75,20 @@ function CheckModuleExists (string $moduleName): string
 function ParseVersionFile (string $filePath)
 {
     $result = [];
-    if(file_exists($filePath)) {
-        foreach (file($filePath) as $line)
-        {
-            list($module, $version) = explode(',', $line, 2) + array(NULL, NULL);
-            if ($version !== NULL)
-            {
-                $result += [htmlspecialchars(trim($module)) => htmlspecialchars(trim($version))];
-            }
-        }
-        return $result;
-    }
-    else {
+    if(!file_exists($filePath)) {
         return false;
     }
+    foreach (file($filePath) as $line)
+    {
+        if ($line == null || !is_int(strpos($line, ",")))
+            continue;
+        list($module, $version) = explode(',', $line, 2) + array(NULL, NULL);
+        if ($version == NULL || $module == NULL) {
+            continue;
+        }
+        $result += [trim($module) => trim($version)];
+    }
+    return $result;
 }
 
 function GetArrayVsActualVersions (array $firstArray, array $secondArray): array
