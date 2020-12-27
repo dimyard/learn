@@ -1,11 +1,14 @@
 <?
-$countOfStableBottles = 99;
+$lessonsDirs = scandir($_SERVER["DOCUMENT_ROOT"]);
+echo "Here we go:</br></br>";
 
-function plural_form($number, $after) {
-    $cases = array (2, 0, 1, 1, 1, 2);
-    echo $number.' '.$after[ ($number%100>4 && $number%100<20)? 2: $cases[min($number%10, 5)] ];
-}
+foreach ($lessonsDirs as $item)
+{
+    if(is_dir($item))
+    {
+        $indexPage =  $item . "/index.php";
 
-while ($countOfStableBottles) {
-    echo(plural_form($countOfStableBottles--, ["бутылка стояла", "бутылки стояло", "бутылок стояло"]) . " на столе. Одна упала. </br>"); //.PHP_EOL
+        if (file_exists($indexPage) && $item != ".")
+            echo "<a href='{$indexPage}'> Lesson: {$item} </a></br>";
+    }
 }
