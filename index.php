@@ -6,6 +6,6 @@ function plural_form($number, $after) {
     echo $number.' '.$after[ ($number%100>4 && $number%100<20)? 2: $cases[min($number%10, 5)] ];
 }
 
-while ($countOfStableBottles > 0) {
+while ($countOfStableBottles) {
     echo(plural_form($countOfStableBottles--, ["бутылка стояла", "бутылки стояло", "бутылок стояло"]) . " на столе. Одна упала. </br>"); //.PHP_EOL
 }
