@@ -90,7 +90,7 @@ function ParseVersionFile (string $filePath)
             continue;
         }
         list($module, $version) = explode(',', $line, 2) + array(NULL, NULL);
-        if ($version == NULL || $module == NULL) {
+        if ($version === NULL || $module === NULL) {
             continue;
         }
         $module = trim($module);
