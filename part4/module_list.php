@@ -1,6 +1,6 @@
 <?
 
-include_once("module.php");
+include_once('module.php');
 
 class ModulesList
 {
@@ -13,13 +13,14 @@ class ModulesList
     //Folders in repository to ignore it
     private array $blackList = [];
 
-    public function __construct(Repository $repositoryEntity)
+    public function __construct(Repository $repositoryEntity, array $blackList = [])
     {
         $this->repository = $repositoryEntity;
-        self::GetModulesList();
+        self::getModulesList();
+        $this->blackList = $blackList;
     }
 
-    function GetModulesList ()
+    private function getModulesList ()
     {
         $moduleDirs = array_diff(scandir($this->repository->repositoryPath), array('..', '.'));
         foreach ($moduleDirs as $moduleScanned) {
@@ -27,7 +28,7 @@ class ModulesList
                 continue;
             }
             try {
-                self::GetModuleVersions($moduleScanned);
+                self::getModuleVersions($moduleScanned);
             }
             catch (Exception $exception)
             {
@@ -36,7 +37,7 @@ class ModulesList
         }
     }
 
-    function GetModuleVersions (string $moduleName)
+    private function getModuleVersions (string $moduleName)
     {
         $pathToModule = $this->repository->repositoryPath . DIRECTORY_SEPARATOR . $moduleName;
         $versionDirs = array_diff(scandir($pathToModule), array('..', '.'));
@@ -51,24 +52,24 @@ class ModulesList
             try {
                 $module = new Module($moduleName);
                 $module->moduleFolder = $pathToModule;
-                $module->moduleVersion = self::NormalizeVersionName($version);
+                $module->moduleVersion = self::normalizeVersionName($version);
                 $module->versionFolder = $versionPath;
-                $module->GetPathToVersionControlFile();
+                $module->getPathToVersionControlFile();
                 $this->moduleList[] = $module;
             }
             catch (Exception $exception) {
-                echo "Cant initialize module`s update: " . $exception;
+                echo 'Cant initialize module`s update: ' . $exception;
             }
         }
     }
 
-    function NormalizeVersionName (string $folderName): string
+    protected function normalizeVersionName (string $folderName): string
     {
-        $result = trim(preg_replace('/[^0-9\.]/', '', $folderName), ".");
-        return str_replace(" ", "", $result);
+        $result = trim(preg_replace('/[^0-9\.]/', '', $folderName), '.');
+        return str_replace(' ', '', $result);
     }
 
-    function GetModuleByNameAndVersion (string $moduleName, string $version)
+    protected function getModuleByNameAndVersion (string $moduleName, string $version)
     {
         foreach ($this->moduleList as $moduleVersion) {
             if ($moduleVersion->moduleName !== $moduleName || $moduleVersion->moduleVersion !== $version) {
@@ -79,7 +80,7 @@ class ModulesList
         throw new Exception("Cant find this update: {$moduleName} {$version}.");
     }
 
-    private function GetAllDependencies(string $moduleName, string $version): array
+    private function getAllDependencies(string $moduleName, string $version): array
     {
         $result = [];
         foreach ($this->moduleList as $moduleVersion) {
@@ -95,7 +96,7 @@ class ModulesList
                 return $result;
             }
             foreach ($dependencies as $moduleInList=>$versionInList) {
-                $result = array_merge($result, $this->GetAllDependencies($moduleInList, $versionInList));
+                $result = array_merge($result, $this->getAllDependencies($moduleInList, $versionInList));
             }
             return $result;
         }
@@ -103,9 +104,9 @@ class ModulesList
         return $result;
     }
 
-    function GetDependencies(string $moduleName, string $version): array
+    public function getDependencies(string $moduleName, string $version): array
     {
-        $result = self::GetAllDependencies($moduleName, $version);
+        $result = self::getAllDependencies($moduleName, $version);
         foreach ($result as $key=>$value) {
             if ($value->moduleName === $moduleName && $value->moduleVersion === $version ) {
                 unset($result[$key]);
@@ -114,27 +115,27 @@ class ModulesList
         return $result;
     }
 
-    function PrintVersionInfo (string $moduleName, string $version)
+    public function printVersionInfo (string $moduleName, string $version)
     {
         try {
-            $module = self::GetModuleByNameAndVersion($moduleName, $version);
-            echo "</br>___________________________________________";
-            echo "</br><b>Module:</b> " . $module->moduleName . "</br>";
-            echo "<b>Version:</b> " . $module->moduleVersion . "</br>";
-            echo "<b>Folder of current version:</b> " . $module->versionFolder . "</br>";
-            $dependencies = $this->GetDependencies($module->moduleName, $module->moduleVersion);
+            $module = self::getModuleByNameAndVersion($moduleName, $version);
+            echo '</br>___________________________________________';
+            echo '</br><b>Module:</b> ' . $module->moduleName . '</br>';
+            echo '<b>Version:</b> ' . $module->moduleVersion . '</br>';
+            echo '<b>Folder of current version:</b> ' . $module->versionFolder . '</br>';
+            $dependencies = $this->getDependencies($module->moduleName, $module->moduleVersion);
             if (count($dependencies) > 0) {
-                echo "<b>This version have following dependencies:</b> </br>";
+                echo '<b>This version have following dependencies:</b> </br>';
                 foreach ($dependencies as $module) {
-                    echo "- " . $module->moduleName . " " . $module->moduleVersion . "</br>";
+                    echo '- ' . $module->moduleName . ' ' . $module->moduleVersion . '</br>';
                 }
             }
-            echo "___________________________________________</br>";
+            echo '___________________________________________</br>';
         }
         catch (Exception $e)
         {
-            echo "</br><b>Error:</b> Cant find or access patch of this module: " . $moduleName . " "
-                . $version . "</br>";
+            echo '</br><b>Error:</b> Cant find or access patch of this module: ' . $moduleName . ' '
+                . $version . '</br>';
         }
     }
 }

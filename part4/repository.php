@@ -1,6 +1,6 @@
 <?
 
-include_once ("module_list.php");
+include_once ('module_list.php');
 
 class Repository
 {
@@ -9,15 +9,15 @@ class Repository
 
     public function __construct(string $path)
     {
-        $this->repositoryPath = $path ?? $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR .
-            "part2" . DIRECTORY_SEPARATOR . "modules";
-        if (!self::CheckPath()) {
+        $this->repositoryPath = $path ?? $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR .
+            'part2' . DIRECTORY_SEPARATOR . 'modules';
+        if (!self::checkPath()) {
             return false;
         }
         return $this;
     }
 
-    function CheckPath(): bool
+    private function checkPath(): bool
     {
         return is_dir($this->repositoryPath);
     }
